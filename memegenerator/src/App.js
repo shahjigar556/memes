@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import Header from './components/views/Header';
+import Footer from './components/views/Footer';
+import Home from './components/views/Home';
+import Memes from './components/views/Memes';
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <BrowserRouter>
+       <Header />
+       <switch>
+           <Route exact path='/' component={Home}></Route>
+           <Route path="/:id/:text_boxes" component={Memes}></Route>
+       </switch>
+       <Footer />
+   </BrowserRouter>
+  )
 }
-
-export default App;
