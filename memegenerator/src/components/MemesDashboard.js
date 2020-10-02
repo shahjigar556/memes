@@ -13,7 +13,7 @@ const useStyles = makeStyles({
       maxWidth: 345,
     },
     media: {
-      height: 400,
+      height: 300,
      
     },
     button:{
