@@ -1,7 +1,8 @@
-
 import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios';
+import Input from '../Input';
+
 export default function Memes(props) {
    const [meme,setMeme]=useState({});
     const id=props.match.params.id;
@@ -24,12 +25,17 @@ export default function Memes(props) {
    const imgStyle={
        margin:'20px'
    }
+   const handleChange=(e,num)=>{
+       console.log(`Change Event is Triggered with ${num} and ${e.target.value}`)
+   }
     return (
        <div>
            <center>
            <img style={imgStyle} src={meme.url} height="400px" width="400px" alt={meme.name} />
            <h2>{meme.name}</h2>
            </center>
+
+           <Input text_boxes={text_boxes} handleChange={handleChange}/>
        </div>
     )
 }

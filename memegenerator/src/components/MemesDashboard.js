@@ -68,7 +68,7 @@ export default function MemesDashboard(props) {
                                     </CardActionArea> 
                                     <div style={btnStyle}>
                                         <center>
-                                         <Button onClick={()=>handleClick(meme.name)}className={classes.button} variant="contained" color="primary" href="#contained-buttons"><Link className={classes.link} to={`/${meme.id}/${meme.box_count}`}>Develop</Link></Button>
+                                         <Button onClick={()=>handleClick(meme.name)}className={classes.button} variant="contained" color="primary" ><Link className={classes.link} to={`/${meme.id}/${meme.box_count}`}>Develop</Link></Button>
                                         </center>
                                     </div>
                                 </Card>
