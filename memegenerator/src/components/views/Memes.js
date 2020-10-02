@@ -6,6 +6,8 @@ export default function Memes(props) {
     return (
         <div>
             <h1>Memes Page</h1>
+            <h2>{props.match.params.id}</h2>
+            <h2>{props.match.params.text_boxes}</h2>
         </div>
     )
 }

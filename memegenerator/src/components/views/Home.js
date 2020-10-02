@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios';
-
+import MemesDashboard from '../MemesDashboard';
 
 export default function Home() {
     const [memedata,setMemeData]=useState([]);
@@ -11,8 +11,7 @@ export default function Home() {
     const sendGetRequest=async()=>{
       try{
         const resp=await axios.get('https://api.imgflip.com/get_memes')
-        console.log(resp.data)
-        setMemeData(resp.data)
+        setMemeData(resp.data.data.memes)
       }catch(e){
           console.log("Error in Fetching Data")
       }
@@ -20,9 +19,15 @@ export default function Home() {
     useEffect(()=>{
        sendGetRequest();
     },[])
+    
+    const headerStyle={
+      textAlign:'center',
+      color:'red'
+    }
     return (
         <div>
-            <h1>DashBoard For memes</h1>
+            <h1 style={headerStyle}>Meme Dashboard</h1>
+            <MemesDashboard memes={memedata}/>  
         </div>
     )
 }
