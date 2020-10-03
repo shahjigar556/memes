@@ -5,8 +5,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import { Link } from 'react-router-dom';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import LazyLoad from 'react-lazyload';
+import Loading from '../components/Loading'
 
 const useStyles = makeStyles({
     root: {
@@ -51,11 +52,11 @@ export default function MemesDashboard(props) {
     {
         return (
             <div style={divStyle} className="container">
+             <LazyLoad placeholder={<Loading />}>
                 <Grid container spacing={3} className="row">
                      {props.memes.map(meme=>{
                          return(
-                
-                           <Grid item xs={6} md={4} key={meme.id} className="col-xs-3">
+                           <Grid item xs={12} md={4} key={meme.id} className="col-xs-3">
                                  <Card className={classes.root}>
                                     <CardActionArea>
                                           <CardMedia
@@ -73,10 +74,11 @@ export default function MemesDashboard(props) {
                                     </div>
                                 </Card>
                            </Grid>
-                       
+                         
                          )
                      })}
                 </Grid>
+             </LazyLoad>
             </div>
         )
 

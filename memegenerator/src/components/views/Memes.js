@@ -2,6 +2,7 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios';
 import Input from '../Input';
+import Grid from '@material-ui/core/Grid';
 const boxes=[];
 
 export default function Memes(props) {
@@ -84,14 +85,17 @@ export default function Memes(props) {
    }
     return (
        <div>
-           <center>
+          
+          <center>
            <img style={imgStyle} src={meme.url} height="400px" width="400px" alt={meme.name} />
            <h2>{meme.name}</h2>
            </center>
+
            <form onSubmit={handleSubmit}>
            <Input text_boxes={text_boxes} handleChange={handleChange}/>
            <button type="submit">Generate Meme</button>
            </form>
+        
        </div>
     )
 }
