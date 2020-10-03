@@ -55,7 +55,7 @@ export default function MemesDashboard(props) {
                      {props.memes.map(meme=>{
                          return(
                 
-                           <Grid item xs={4} key={meme.id} className="col-xs-3">
+                           <Grid item xs={6} md={4} key={meme.id} className="col-xs-3">
                                  <Card className={classes.root}>
                                     <CardActionArea>
                                           <CardMedia

@@ -38,12 +38,22 @@ export default function Memes(props) {
    console.log(bodyformData)
    const handleChange=(e,num)=>{
        console.log(`Change Event is Triggered with ${num} and ${e.target.value}`)
-       if(num==1){
-           bodyformData.set('text0',e.target.value);    
-           
+
+       if(text_boxes>=3)
+       {
+          console.log("More than 2 text-boxes")
+          console.log(`change event ocuured by ${num} and ${e.target.value}`)
+          bodyformData.set(`boxes[${num-1}][text]`,e.target.value)
        }
-       else if(num==2){
-           bodyformData.set('text1',e.target.value);
+       else{
+        if(num==1){
+            bodyformData.set('text0',e.target.value);    
+            
+        }
+        else if(num==2){
+            bodyformData.set('text1',e.target.value);
+        }
+         
        }
    }
  
