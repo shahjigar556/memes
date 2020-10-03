@@ -34,8 +34,8 @@ export default function Home() {
    let indexOfLastMeme=currentPage*postPerPage;
     let indexOfFirstMeme=indexOfLastMeme-postPerPage;
     let currentMemes=memedata.slice(indexOfFirstMeme,indexOfLastMeme);
-    console.log(currentMemes)
-    console.log(`${indexOfFirstMeme} ${indexOfLastMeme}`);
+    //console.log(currentMemes)
+    //console.log(`${indexOfFirstMeme} ${indexOfLastMeme}`);
     return (
         <div>
             <h1 style={headerStyle}>Meme Dashboard</h1>

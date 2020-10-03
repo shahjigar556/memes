@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import LazyLoad from 'react-lazyload';
-import Loading from '../components/Loading'
+
 
 const useStyles = makeStyles({
     root: {
@@ -52,7 +52,7 @@ export default function MemesDashboard(props) {
     {
         return (
             <div style={divStyle} className="container">
-             <LazyLoad placeholder={<Loading />}>
+             
                 <Grid container spacing={3} className="row">
                      {props.memes.map(meme=>{
                          return(
@@ -78,7 +78,7 @@ export default function MemesDashboard(props) {
                          )
                      })}
                 </Grid>
-             </LazyLoad>
+          
             </div>
         )
 

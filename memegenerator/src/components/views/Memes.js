@@ -2,7 +2,7 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios';
 import Input from '../Input';
-import Grid from '@material-ui/core/Grid';
+
 const boxes=[];
 
 export default function Memes(props) {
@@ -38,12 +38,12 @@ export default function Memes(props) {
    bodyformData.append('boxes',[]);
    console.log(bodyformData)
    const handleChange=(e,num)=>{
-       console.log(`Change Event is Triggered with ${num} and ${e.target.value}`)
+       //console.log(`Change Event is Triggered with ${num} and ${e.target.value}`)
 
        if(text_boxes>=3)
        {
-          console.log("More than 2 text-boxes")
-          console.log(`change event ocuured by ${num} and ${e.target.value}`)
+         // console.log("More than 2 text-boxes")
+         // console.log(`change event ocuured by ${num} and ${e.target.value}`)
           bodyformData.set(`boxes[${num-1}][text]`,e.target.value)
        }
        else{
