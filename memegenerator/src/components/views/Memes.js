@@ -2,9 +2,11 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios';
 import Input from '../Input';
+const boxes=[];
 
 export default function Memes(props) {
    const [meme,setMeme]=useState({});
+   const [receivedMeme,setReceivedMeme]=useState();
     const id=props.match.params.id;
     const text_boxes=props.match.params.text_boxes;
     const sendGetRequest=async()=>{
@@ -25,8 +27,50 @@ export default function Memes(props) {
    const imgStyle={
        margin:'20px'
    }
+   
+   var bodyformData=new FormData();
+   bodyformData.append('template_id',id);
+   bodyformData.append('username','Jigar123');
+   bodyformData.append('password','jigar123')
+   bodyformData.append('text0',' ')
+   bodyformData.append('text1',' ')
+   bodyformData.append('boxes',[]);
+   console.log(bodyformData)
    const handleChange=(e,num)=>{
        console.log(`Change Event is Triggered with ${num} and ${e.target.value}`)
+       if(num==1){
+           bodyformData.set('text0',e.target.value);    
+           
+       }
+       else if(num==2){
+           bodyformData.set('text1',e.target.value);
+       }
+   }
+ 
+   const sendPostRequest=async()=>{
+      
+        axios({
+            method: 'post',
+            url: 'https://api.imgflip.com/caption_image',
+            data: bodyformData,
+            headers: {'Content-Type': 'multipart/form-data' }
+            })
+            .then(function (response) {
+                //handle success
+                console.log(response.data.data);
+                setMeme(response.data.data)
+                
+            })
+            .catch(function (response) {
+                //handle error
+                console.log(response);
+            });   
+      
+       
+   }
+   const handleSubmit=(e)=>{
+        e.preventDefault();
+        sendPostRequest();
    }
     return (
        <div>
@@ -34,8 +78,10 @@ export default function Memes(props) {
            <img style={imgStyle} src={meme.url} height="400px" width="400px" alt={meme.name} />
            <h2>{meme.name}</h2>
            </center>
-
+           <form onSubmit={handleSubmit}>
            <Input text_boxes={text_boxes} handleChange={handleChange}/>
+           <button type="submit">Generate Meme</button>
+           </form>
        </div>
     )
 }
