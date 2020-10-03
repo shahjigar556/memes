@@ -87,7 +87,7 @@ export default function Memes(props) {
        <div>
           
           <center>
-           <img style={imgStyle} src={meme.url} height="400px" width="400px" alt={meme.name} />
+           <img className="img-fluid" style={imgStyle} src={meme.url} height="400px" width="400px" alt={meme.name} />
            <h2>{meme.name}</h2>
            </center>
 
